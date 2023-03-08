@@ -25,6 +25,7 @@ public class Car extends Vehicle {
                        "Discount Applied: " + discountApplied);
   }
 
+
   public boolean dropOffPassengers(int numOut) {
     if (numOut < getPassengers()) {
       setPassengers(getPassengers() - numOut);
