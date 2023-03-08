@@ -33,7 +33,6 @@ public class Car extends Vehicle {
       return false;
     }
   }
-
   public void applyDiscount() {
     if (!discountApplied && electric) {
       setTollFee(getTollFee() * 0.5);

@@ -15,7 +15,6 @@ public class Truck extends Vehicle {
             "Number of Axles: " + axles + "\n" +
             "Has Trailer: " + hasTrailer);
   }
-
   public boolean validateLicensePlate() {
     String plateEnd = getLicensePlate().substring(getLicensePlate().length()-2);
     if (hasTrailer && axles > 4) {

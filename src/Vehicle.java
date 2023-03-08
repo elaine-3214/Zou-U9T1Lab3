@@ -20,7 +20,6 @@ public class Vehicle {
   public int getPassengers() {
     return passengers;
   }
-
   public void setPassengers(int num) {
     passengers = num;
   }
