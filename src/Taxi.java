@@ -23,7 +23,6 @@ public class Taxi extends Car{
                 "Fare Collected: " + fareCollected);
     }
 
-
     public void pickupRiders(int numRiders, double farePerRider) {
         setPassengers(getPassengers() + numRiders);
         fareCollected += farePerRider * numRiders;

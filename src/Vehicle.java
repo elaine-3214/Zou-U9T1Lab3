@@ -9,7 +9,6 @@ public class Vehicle {
     this.passengers = passengers;
   }
 
-
   public String getLicensePlate() {
     return licensePlate;
   }
