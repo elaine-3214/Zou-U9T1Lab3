@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Truck extends Vehicle {
   private int axles;
   private boolean hasTrailer;
@@ -8,12 +10,11 @@ public class Truck extends Vehicle {
     this.hasTrailer = hasTrailer;
   }
 
-  public void printTruck() {
-    System.out.println("License Plate: " + getLicensePlate() + "\n" +
-            "Toll Fee: " + getTollFee() + "\n" +
-            "Passengers: " + getPassengers() + "\n" +
-            "Number of Axles: " + axles + "\n" +
-            "Has Trailer: " + hasTrailer);
+  @Override
+  public void printInfo() {
+    super.printInfo();
+    System.out.println("Number of Axles: " + axles + "\n" +
+                       "Has Trailer: " + hasTrailer);
   }
   public boolean validateLicensePlate() {
     String plateEnd = getLicensePlate().substring(getLicensePlate().length()-2);
@@ -29,5 +30,13 @@ public class Truck extends Vehicle {
       return true;
     }
     return true;
+  }
+
+  @Override
+  public double calculateTollPrice() {
+    if (hasTrailer) {
+      return 2 * getTollFee() * axles;
+    }
+    return getTollFee() * axles;
   }
 }

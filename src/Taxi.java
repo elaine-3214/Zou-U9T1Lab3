@@ -14,14 +14,13 @@ public class Taxi extends Car{
     public double getFareCollected() {
         return fareCollected;
     }
-    public void printTaxi() {
-        System.out.println("License Plate: " + getLicensePlate() + "\n" +
-                "Toll Fee: " + getTollFee() + "\n" +
-                "Passengers: " + getPassengers() + "\n" +
-                "Electric: " + isElectric() + "\n" +
-                "Discount Applied: " + isDiscountApplied() + "\n" +
-                "Fare Collected: " + fareCollected);
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Fare Collected: " + fareCollected);
     }
+
     public void pickupRiders(int numRiders, double farePerRider) {
         setPassengers(getPassengers() + numRiders);
         fareCollected += farePerRider * numRiders;
@@ -29,7 +28,19 @@ public class Taxi extends Car{
                 setTollFee(getTollFee() * 0.5);
                 setDiscountApplied(true);
         }
+    }
 
+
+    public boolean chargeAndDropOffRiders(double farePerRider) {
+        dropOffPassengers(getPassengers());
+        fareCollected += farePerRider * (getPassengers() - 1);
+        setPassengers(1);
+        return true;
+    }
+
+    @Override
+    public void openRoof() {
+        System.out.println("Let's not open the roof because we don't have one");
     }
 
 
